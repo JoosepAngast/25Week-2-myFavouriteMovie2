@@ -15,7 +15,7 @@ html {
     height: 85vh;
     margin-top: 4rem;
     background: linear-gradient(to right, rgba(10.5, 31.5, 52.5, 1) calc((50vw - 170px) - 340px), rgba(10.5, 31.5, 52.5, 0.84) 50%, rgba(10.5, 31.5, 52.5, 0.84) 100%),
-    url(../images/rOJb0yQOCny0bPjg8bCLw8DyAD7.jpg);
+    url(../images/background2.jpg);
     background-size: cover;
 }
 
@@ -23,12 +23,29 @@ html {
     height: 85%;
     width: 30%;
     text-align: center;
+    /*add for animation*/
+    position: relative;
+    left: -50rem;
+    animation: slide-from-left 3.5s ease-in-out forwards;
+}
+
+@keyframes slide-from-left {
+    80% {left: 1.5rem;}
+    100% {left: 0;}
 }
 
 .movie-poster {
     height: 100%;
     border-radius: 5px;
     margin-right: 2rem;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+/*add hover effect*/
+.movie-poster:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 8px 8px -4px grey ;
 }
 
 .movie-info-container {
@@ -38,8 +55,27 @@ html {
     padding-top: 2rem;
 }
 
+.movie-info-container > *:not(.movie-info-title) {
+    opacity: 0;
+    /*for animation*/
+    animation: fade-in 3.5s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fade-in {
+    100% {opacity: 1;}
+}
+
 .movie-info-title {
     text-transform: capitalize;
+    /*add for animation*/
+    transform: translateY(-150px);
+    animation: slide-from-top 3.5s ease-in-out forwards;
+}
+
+@keyframes slide-from-top {
+    80% {transform: translateY(20px);}
+    100% {transform: translateY(0);}
 }
 
 .movie-genres {
